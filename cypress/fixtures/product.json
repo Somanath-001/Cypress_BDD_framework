@@ -1,0 +1,11 @@
+{
+    "t_shirt": "Pure cotton T-Shirt",
+    "price": "$13.99",
+    "qty":"2",
+    "laptop": "Apple MacBook Laptop",
+    "laptop_price": "$999.00",
+    "chair": "EKTORP Neckroll",
+    "chair_price": "$9.99",
+    "shipping_price":"$61.38",
+    "succsess_Msg":" Your order is placed. Order ID: #00011 Order details have been sent to your e-mail address."
+}

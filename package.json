@@ -1,0 +1,42 @@
+{
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.1.2",
+    "@cucumber/cucumber": "^11.0.0",
+    "cypress": "^13.14.2",
+    "cypress-cucumber-attach-screenshots-to-failed-steps": "^1.0.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "mochawesome": "^7.1.3",
+    "multiple-cucumber-html-reporter": "^3.8.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/support/step_definitions/**/*.js",
+    "html": {
+      "enabled": true,
+      "output": "cypress/reports/cucumber-html/cucumber-report.html"
+    },
+    "messages": {
+      "enabled": true,
+      "output": "cypress/reports/cucumber-ndjson/cucumber-report.ndjson"
+    },
+    "json": {
+      "enabled": true,
+      "formatter": "cucumber-json-formatter",
+      "output": "cypress/reports/cucumber-json/cucumber-report.json"
+    }
+  },
+  "scripts": {
+    "full-regression-headed-chrome": "cypress run --headed --browser chrome --spec 'cypress/e2e/*.feature'",
+    "full-regression-headless-chrome": "cypress run --browser chrome --spec 'cypress/e2e/*.feature'",
+    "signin-headed-chrome": "cypress run --headed --browser chrome --spec 'cypress/e2e/signin.feature' && node cucumber-html-report.js",
+    
+    "sign-in-headed": "cypress run -e Tags=\"@sign-in\" --headed",
+    "sign-in-headless": "cypress run -e Tags=\"@sign-in\"",
+    "Account-creation-headed": "cypress run -e Tags=\"@account-creation\" -- headed",
+    "smoke-test-pack-headed": "cypress run -e Tags='@smoke' --headed && node cucumber-html-report.js",
+    "fullregression-test-headed": "cypress run -e Tags=\"@regression\" --headed",
+    "smoke-test-pack-headless": "cypress run -e Tags=\"@smoke\"",
+    "fullregression-test-headless": "cypress run -e Tags=\"@regression\"",
+    "regression-test-headed": "cypress run -e Tags=\"@regression and not @smoke\" --headed",
+    "regression-test-headless": "cypress run -e Tags=\"@regression and not @smoke\""
+  }
+}
